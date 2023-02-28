@@ -9,5 +9,7 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'Todo' " />
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.3" />
+    <PackageReference Include="MySql.Data" Version="8.0.32" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.0" />
   </ItemGroup>
 </Project>
