@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.Sqlite;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
 using Todo.Models;
 using Todo.Models.ViewModels;
@@ -37,9 +38,8 @@ namespace Todo.Controllers
         internal TodoViewModel GetAllTodos()
         {
             List<TodoItem> todoList = new();
-
-            using (SqliteConnection con =
-                   new SqliteConnection("Data Source=db.sqlite"))
+            using (SqlConnection con =
+                   new SqlConnection("Server=tcp:clourd-lr-bd.database.windows.net,1433;Initial Catalog=Cloud_LR;Persist Security Info=False;User ID=CloudSA2b80aae6;Password=bky8dfa*RPK2tgv.jht;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 using (var tableCmd = con.CreateCommand())
                 {
@@ -82,7 +82,7 @@ namespace Todo.Controllers
             TodoItem todo = new();
 
             using (var connection =
-                   new SqliteConnection("Data Source=db.sqlite"))
+                   new SqlConnection("Server=tcp:clourd-lr-bd.database.windows.net,1433;Initial Catalog=Cloud_LR;Persist Security Info=False;User ID=CloudSA2b80aae6;Password=bky8dfa*RPK2tgv.jht;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 using (var tableCmd = connection.CreateCommand())
                 {
@@ -110,8 +110,8 @@ namespace Todo.Controllers
 
         public RedirectResult Insert(TodoItem todo)
         {
-            using (SqliteConnection con =
-                   new SqliteConnection("Data Source=db.sqlite"))
+            using (SqlConnection con =
+                   new SqlConnection("Server=tcp:clourd-lr-bd.database.windows.net,1433;Initial Catalog=Cloud_LR;Persist Security Info=False;User ID=CloudSA2b80aae6;Password=bky8dfa*RPK2tgv.jht;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 using (var tableCmd = con.CreateCommand())
                 {
@@ -133,8 +133,8 @@ namespace Todo.Controllers
         [HttpPost]
         public JsonResult Delete(int id)
         {
-            using (SqliteConnection con =
-                   new SqliteConnection("Data Source=db.sqlite"))
+            using (SqlConnection con =
+                   new SqlConnection("Server=tcp:clourd-lr-bd.database.windows.net,1433;Initial Catalog=Cloud_LR;Persist Security Info=False;User ID=CloudSA2b80aae6;Password=bky8dfa*RPK2tgv.jht;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 using (var tableCmd = con.CreateCommand())
                 {
@@ -149,8 +149,8 @@ namespace Todo.Controllers
 
         public RedirectResult Update(TodoItem todo)
         {
-            using (SqliteConnection con =
-                   new SqliteConnection("Data Source=db.sqlite"))
+            using (SqlConnection con =
+                   new SqlConnection("Server=tcp:clourd-lr-bd.database.windows.net,1433;Initial Catalog=Cloud_LR;Persist Security Info=False;User ID=CloudSA2b80aae6;Password=bky8dfa*RPK2tgv.jht;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 using (var tableCmd = con.CreateCommand())
                 {
